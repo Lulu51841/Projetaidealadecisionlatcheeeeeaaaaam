@@ -30,3 +30,6 @@ def trivial_case_1():
     capacity,pref_E,pref_S = mariageStable.generate_instance([1,1,1,1],etu_size=3)
     result = mariageStable.Mariage_stable(capacity,pref_E=pref_E,pref_S=pref_S)
     return [] in result
+
+def launch_All_test():
+    return [exerciceCC(),exerciceCM(),testCapacityUp(),trivial_case_1()]
