@@ -36,29 +36,29 @@ def trivial_case_1():
 
 def calcul_sat_test_trivial_min_sat():
     scores = calcul_satisfaction.compute_sat_scores([[1,0],[0,1]],[[1,0],[0,1]],[[0],[1]])
-    return scores["schools"] == 0. and scores["students"] == 0.
+    return scores["Avg_schools"] == 0. and scores["Avg_students"] == 0.
 
 def calcul_sat_test_trivial_max_sat():
     scores = calcul_satisfaction.compute_sat_scores([[1,0],[0,1]],[[1,0],[0,1]],[[1],[0]])
-    return scores["schools"] == 1. and scores["students"] == 1.
+    return scores["Avg_schools"] == 1. and scores["Avg_students"] == 1.
 
 def calcul_sat_test_random_val_capacity_1_1():
     scores = calcul_satisfaction.compute_sat_scores([[0, 2, 1], [0, 2, 1], [1, 0, 2]],[[0, 1, 2], [1, 2, 0], [1, 0, 2]],[[0], [2], [1]])
-    return scores["schools"] == 2.5/3. and scores["students"] == 2.5/3.
+    return scores["Avg_schools"] == 2.5/3. and scores["Avg_students"] == 2.5/3. and scores["Median_schools"] == 1. and scores["Median_students"] == 1.
 
 def calcul_sat_test_random_val_capacity_1_2():
     scores = calcul_satisfaction.compute_sat_scores([[0, 2, 1], [1, 0, 2], [1, 0, 2]],[[1, 0, 2], [2, 0, 1], [2, 1, 0]],[[1], [2], [0]])
-    return scores["schools"] == 2./3. and scores["students"] == 2./3.
+    return scores["Avg_schools"] == 2./3. and scores["Avg_students"] == 2./3. and scores["Median_schools"] == 1 and scores["Median_students"] == .5
 
 def calcul_sat_test_random_val_capacity_1_3():
     scores = calcul_satisfaction.compute_sat_scores([[1, 2, 0], [1, 0, 2], [0, 1, 2]],[[1, 0, 2], [1, 2, 0], [0, 2, 1]],[[2], [1], [0]])
     print(scores)
-    return scores["schools"] == 2./3. and scores["students"] == 2.5/3.
+    return scores["Avg_schools"] == 2./3. and scores["Avg_students"] == 2.5/3. and scores["Median_schools"] == 1 and scores["Median_students"] == 1
 
 def calcul_sat_test_random_val_capacity_2():
     scores = calcul_satisfaction.compute_sat_scores([[0, 2, 1], [0, 1, 2], [2, 0, 1], [0, 1, 2], [2, 1, 0], [2, 1, 0]],[[3, 2, 4, 1, 0, 5], [5, 0, 2, 1, 3, 4], [5, 1, 2, 0, 4, 3]],[[1, 3], [4, 0], [2, 5]])
     print(scores)
-    return scores["schools"] == 4./6. and scores["students"] == 4.5/6.
+    return scores["Avg_schools"] == 4./6. and scores["Avg_students"] == 4.5/6. and scores["Median_schools"] == 0.75 and scores["Median_students"] == 1
 
 def sat_test():
     return [calcul_sat_test_random_val_capacity_1_1(),calcul_sat_test_random_val_capacity_1_2(),calcul_sat_test_random_val_capacity_1_3(),calcul_sat_test_random_val_capacity_2(),calcul_sat_test_trivial_max_sat(),calcul_sat_test_trivial_min_sat()]

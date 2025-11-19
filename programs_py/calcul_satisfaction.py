@@ -1,5 +1,6 @@
 import mariageStable
 import mariageStable2
+import statistics
 
 def sort_affectation(to_sort,order):
     result = []
@@ -7,6 +8,7 @@ def sort_affectation(to_sort,order):
         if i in to_sort:
             result.append(i)
     return result
+
 
 def compute_sat_scores(pref_E,pref_S,affectation):
     #Note : Le programme implose si on lui donne qu'une seule école ou qu'un seul étudiant
@@ -31,4 +33,4 @@ def compute_sat_scores(pref_E,pref_S,affectation):
             L_schools.append((sum_of_position/float(affectation_length)))#On enlève 1 a la taille de la liste a chaque fois pour que le score le plus bas possible soit 0 et pas (n-1)/n
         else :
             L_schools.append("L'étudiant n'avait sélectionner aucune école")
-    return {"schools" : sum(L_schools)/float(len(L_schools)) ,"students" : sum(L_students)/float(len(L_students))}
+    return {"Avg_schools" : sum(L_schools)/float(len(L_schools)), "Median_schools" : statistics.median(L_schools), "Avg_students" : sum(L_students)/float(len(L_students)), "Median_students" : statistics.median(L_students)}
